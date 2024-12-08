@@ -1,4 +1,4 @@
-# ETL Job Script that extracts and transforms a dataset from an S3 bucket folder using SQL, then writes it to a seperate folder meant to store the transformed data.
+# ETL Job Script within AWS Glue that extracts and transforms a dataset from an S3 bucket folder using SQL, then writes it to a seperate folder meant to store the transformed data.
 
 import sys
 from awsglue.transforms import *
