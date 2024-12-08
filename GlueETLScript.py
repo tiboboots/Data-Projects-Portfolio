@@ -21,7 +21,7 @@ job.init(args['JOB_NAME'], args)
 # Script generated for node Amazon S3
 AmazonS3_node1733056369757 = glueContext.create_dynamic_frame.from_options(format_options={"quoteChar": "\"", "withHeader": True, "separator": ",", "optimizePerformance": False}, connection_type="s3", format="csv", connection_options={"paths": ["s3://easybuckets/healthcaredata/"], "recurse": True}, transformation_ctx="AmazonS3_node1733056369757")
 
-# Script generated for node SQL Query
+# Transforming Dataset using SQL within AWS Glue
 SqlQuery44 = '''
 SELECT `patient id`,
 SUBSTRING_INDEX(name, " ", 1) AS first_name,
@@ -40,7 +40,7 @@ dataframe = SQLQuery_node1733064367299.toDF()
 
 dataframe = dataframe.repartition(1)
 
-# Writing Dataframe data to S3 bucket
+# Writing Transformed Dataframe data to S3 bucket
 dataframe.write\
     .format("csv")\
     .option("quote", None)\
